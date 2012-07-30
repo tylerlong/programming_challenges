@@ -1,4 +1,3 @@
 <div>
-  #<%= challenge.position %>. - Level <%= challenge.level  %><br/>
-  <%= challenge.question %>
+  <%= link_to "##{challenge.position}", challenge_path(challenge) %> - Level <%= challenge.level  %> - <%= challenge.question %>
 </div>

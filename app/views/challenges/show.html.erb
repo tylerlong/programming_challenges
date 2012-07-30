@@ -1,1 +1,15 @@
-<% title "Challenge #{@challenge.position}" %>
+<% title "Challenge ##{@challenge.position}" %>
+
+<div>Level: <%= @challenge.level %></div>
+
+<h2>Question: </h2>
+<pre><%= @challenge.question %></pre>
+
+<h2>Hints: </h2>
+<pre><%= @challenge.hints %></pre>
+
+<h2>Solution: </h2>
+<pre><%= @challenge.solution %></pre>
+
+
+<br/><%= link_to "Back to list", challenges_path %>

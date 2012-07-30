@@ -1,0 +1,11 @@
+<div class="content">
+  <%= form_for @challenge do |f| %>
+    <%= f.error_messages %>
+    <%= field f, :position, placeholder: 'Such as "10"' %>
+    <%= field f, :level, placeholder: '1 or 2 or 3' %>
+    <%= field f, :question, :type => :text_area, :rows => 8, :cols => 50 %>
+    <%= field f, :hints, :type => :text_area, :rows => 8, :cols => 50 %>
+    <%= field f, :solution, :type => :text_area, :rows => 8, :cols => 50 %>
+    <div class="actions"><%= f.submit %></div>
+  <% end %>
+</div>
