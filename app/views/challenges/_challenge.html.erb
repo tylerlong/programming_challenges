@@ -1,3 +1,4 @@
 <div>
-  <%= link_to "##{challenge.position}", challenge_path(challenge) %> - Level <%= challenge.level  %> - <%= challenge.question %>
+  <%= link_to "##{challenge.position}", challenge_path(challenge) %> - Level <%= challenge.level  %>
+  - Topic: <%= challenge.topic %> - <%= truncate challenge.question, length: 30, omission: "..." %>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120730094657) do
+ActiveRecord::Schema.define(:version => 20120730143601) do
 
   create_table "challenges", :force => true do |t|
     t.integer  "position",   :null => false
@@ -21,9 +21,11 @@ ActiveRecord::Schema.define(:version => 20120730094657) do
     t.text     "solution",   :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "topic",      :null => false
   end
 
   add_index "challenges", ["level"], :name => "index_challenges_on_level"
   add_index "challenges", ["position"], :name => "index_challenges_on_position", :unique => true
+  add_index "challenges", ["topic"], :name => "index_challenges_on_topic"
 
 end
