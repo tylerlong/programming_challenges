@@ -7,4 +7,6 @@ class Challenge < ActiveRecord::Base
   validates :hints, presence: true
   validates :solution, presence: true
   validates :topic, presence: true
+
+  scope :default_order, order("challenges.position ASC")
 end

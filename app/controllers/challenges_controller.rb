@@ -1,6 +1,6 @@
 class ChallengesController < ApplicationController
   def index
-    @challenges = Challenge.all
+    @challenges = Challenge.default_order
   end
 
   def new
