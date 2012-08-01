@@ -1,4 +1,7 @@
 class ChallengesController < ApplicationController
+
+  http_basic_authenticate_with :name => "tyler", :password => "long", :only => [:new, :create, :edit, :update]
+
   def index
     @challenges = Challenge.default_order
   end
