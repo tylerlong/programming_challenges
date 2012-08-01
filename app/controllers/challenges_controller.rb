@@ -33,4 +33,18 @@ class ChallengesController < ApplicationController
       render "edit"
     end
   end
+
+
+  def test
+    challenge = Challenge.find(params[:id])
+    challenge.solution = params[:solution]
+    session[:solution] =params[:solution]
+    if challenge.valid?
+      redirect_to :back, notice: "You've provided a correct solution!"
+    else
+      session[:error_messages] = challenge.errors.full_messages
+      flash[:error] = "There are some issues of your solution"
+      redirect_to :back
+    end
+  end
 end

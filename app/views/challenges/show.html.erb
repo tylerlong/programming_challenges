@@ -9,7 +9,8 @@
 <pre><%= @challenge.hints %></pre>
 
 <h2>Solution: </h2>
-<pre><%= @challenge.solution %></pre>
+<span class="hints">Ctrl + A to view the solution</span>
+<pre class="solution"><%= @challenge.solution %></pre>
 
 <% if @challenge.input_pattern.present? %>
 <h2>Input Pattern: </h2>
@@ -26,6 +27,26 @@
 <pre><%= @challenge.result %></pre>
 <% end %>
 
-<br/><%= link_to "Edit", edit_challenge_path(@challenge) %>
+<br/>
+<hr/>
+<br/>
 
+<h2>Test your solution below</h2>
+<% flash.each do |name, msg| %>
+  <%= content_tag(:div, raw(msg), :id => "flash_#{name}") %>
+<% end %>
+<% if session[:error_messages].present? %>
+<ul>
+  <% session[:error_messages].each do |error_message| %>
+    <li><%= error_message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_tag test_challenge_path do %>
+  <%= text_area_tag :solution, session[:solution], placeholder: "Enter your solution here", :rows => 8, :cols => 50 %>
+  <div class="actions"><%= submit_tag "Check my solution" %></div>
+<% end %>
+
+<br/><%= link_to "Edit", edit_challenge_path(@challenge) %>
 <br/><br/><%= link_to "Back to list", challenges_path %>

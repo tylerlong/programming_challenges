@@ -1,3 +1,25 @@
 div {
   margin: 12px 0 12px 0;
 }
+
+pre.solution {
+  color: white;
+}
+
+span.hints {
+  color: gray;
+  font-size: 80%;
+}
+
+
+div#flash_notice {
+  color: #468847;
+  background-color: #dff0d8;
+  padding: 5px 0 5px 50px;
+}
+
+div#flash_error {
+  color: #b94a48;
+  background-color: #f2dede;
+  padding: 5px 0 5px 50px;
+}
