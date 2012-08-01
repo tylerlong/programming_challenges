@@ -17,7 +17,12 @@
 <div>Level: <%= @challenge.level %> - Topic: <%= @challenge.topic %></div>
 
 <h2>Question: </h2>
-<pre><%= @challenge.question %></pre>
+<pre><% if @challenge.pre_condition.present? %>Given the following code:
+
+<%= @challenge.pre_condition %>
+
+
+<% end %><%= @challenge.question %></pre>
 
 <h2>Hints: </h2>
 <%= link_to "Show", "#" %>

@@ -12,7 +12,7 @@ end
 
 class Challenge < ActiveRecord::Base
   attr_accessible :hints, :level, :position, :question, :solution, 
-    :topic, :input_pattern, :output_pattern, :result
+    :topic, :input_pattern, :output_pattern, :result, :pre_condition
 
   validates :position, presence: true, numericality: { greater_than: 0 }, uniqueness: true
   validates :level, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 3 }  
@@ -37,12 +37,14 @@ class Challenge < ActiveRecord::Base
 
     if output_pattern.present? or result.present?
       temp_result, output = execute_in_sandbox do
-        eval(solution)
+        temp_solution = self.solution
+        temp_solution = "#{self.pre_condition}\n#{temp_solution}" if self.pre_condition.present?
+        eval(temp_solution)
       end
       if output_pattern.present?
         errors.add(:solution, "output does not match output_pattern") unless eval(output_pattern) =~ output
       end
-      if result.present?
+      if result.present?        
         errors.add(:solution, "does not generate expected result") unless eval(result) == temp_result
       end
     end

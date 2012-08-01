@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120801022304) do
+ActiveRecord::Schema.define(:version => 20120801065535) do
 
   create_table "challenges", :force => true do |t|
     t.integer  "position",       :null => false
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20120801022304) do
     t.string   "input_pattern"
     t.string   "output_pattern"
     t.text     "result"
+    t.text     "pre_condition"
   end
 
   add_index "challenges", ["level"], :name => "index_challenges_on_level"
