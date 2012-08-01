@@ -39,7 +39,12 @@ class Challenge < ActiveRecord::Base
       temp_result, output = execute_in_sandbox do
         temp_solution = self.solution
         temp_solution = "#{self.pre_condition}\n#{temp_solution}" if self.pre_condition.present?
-        eval(temp_solution)
+        begin
+          eval(temp_solution)
+        rescue Exception => ex
+          errors.add(:solution, "#{ex.class.to_s}: #{ex.message}")
+          return
+        end
       end
       if output_pattern.present?
         errors.add(:solution, "output does not match output_pattern") unless eval(output_pattern) =~ output
