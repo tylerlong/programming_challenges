@@ -5,26 +5,27 @@
 <h2>Question: </h2>
 <pre><%= @challenge.question %></pre>
 
+<div class="hints">Ctrl + A to view the following content:</div>
+
 <h2>Hints: </h2>
-<pre><%= @challenge.hints %></pre>
+<pre class="hidden"><%= @challenge.hints %></pre>
 
 <h2>Solution: </h2>
-<span class="hints">Ctrl + A to view the solution</span>
-<pre class="solution"><%= @challenge.solution %></pre>
+<pre class="hidden"><%= @challenge.solution %></pre>
 
 <% if @challenge.input_pattern.present? %>
 <h2>Input Pattern: </h2>
-<pre><%= @challenge.input_pattern %></pre>
+<pre class="hidden"><%= @challenge.input_pattern %></pre>
 <% end %>
 
 <% if @challenge.output_pattern.present? %>
 <h2>Output Pattern: </h2>
-<pre><%= @challenge.output_pattern %></pre>
+<pre class="hidden"><%= @challenge.output_pattern %></pre>
 <% end %>
 
 <% if @challenge.result.present? %>
 <h2>Result: </h2>
-<pre><%= @challenge.result %></pre>
+<pre class="hidden"><%= @challenge.result %></pre>
 <% end %>
 
 <br/>
@@ -47,6 +48,9 @@
   <%= text_area_tag :solution, session[:solution], placeholder: "Enter your solution here", :rows => 8, :cols => 50 %>
   <div class="actions"><%= submit_tag "Check my solution" %></div>
 <% end %>
+
+<% session.delete(:solution)
+session.delete(:error_messages) %>
 
 <br/><%= link_to "Edit", edit_challenge_path(@challenge) %>
 <br/><br/><%= link_to "Back to list", challenges_path %>
