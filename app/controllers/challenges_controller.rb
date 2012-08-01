@@ -44,10 +44,10 @@ class ChallengesController < ApplicationController
     challenge.solution = params[:solution]
     session[:solution] =params[:solution]
     if challenge.valid?
-      redirect_to :back, notice: "You've provided a correct solution!"
+      redirect_to :back, notice: "Congratulations! You've provided a correct solution!"
     else
       session[:error_messages] = challenge.errors.full_messages
-      flash[:error] = "There are some issues of your solution"
+      flash[:error] = "There are some issues of your solution, please resolve them:"
       redirect_to :back
     end
   end

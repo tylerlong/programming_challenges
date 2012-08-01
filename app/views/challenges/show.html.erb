@@ -50,7 +50,7 @@
 <br/>
 <hr/>
 
-<h2>Test your solution below</h2>
+<h2>Provide your solution below</h2>
 <% flash.each do |name, msg| %>
   <%= content_tag(:div, raw(msg), :id => "flash_#{name}") %>
 <% end %>
@@ -64,7 +64,7 @@
 
 <%= form_tag test_challenge_path do %>
   <%= text_area_tag :solution, session[:solution], placeholder: "Enter your solution here", :rows => 8, :cols => 50 %>
-  <div class="actions"><%= submit_tag "Check my solution" %></div>
+  <div class="actions"><%= submit_tag "Validate" %></div>
 <% end %>
 
 <% session.delete(:solution)
