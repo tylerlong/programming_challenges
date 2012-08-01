@@ -3,13 +3,11 @@ div {
 }
 
 pre.hidden {
-  color: white;
+  display:none;
 }
 
-div.hints {
+span.hints {
   color: gray;
-  font-size: 160%;
-  margin: 50px 0 30px 0;
 }
 
 

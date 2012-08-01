@@ -5,32 +5,36 @@
 <h2>Question: </h2>
 <pre><%= @challenge.question %></pre>
 
-<div class="hints">Ctrl + A to view the following content:</div>
-
 <h2>Hints: </h2>
+<%= link_to "Show", "#" %>
 <pre class="hidden"><%= @challenge.hints %></pre>
-
-<h2>Solution: </h2>
-<pre class="hidden"><%= @challenge.solution %></pre>
 
 <% if @challenge.input_pattern.present? %>
 <h2>Input Pattern: </h2>
+<%= link_to "Show", "#" %>
 <pre class="hidden"><%= @challenge.input_pattern %></pre>
 <% end %>
 
 <% if @challenge.output_pattern.present? %>
 <h2>Output Pattern: </h2>
+<%= link_to "Show", "#" %>
 <pre class="hidden"><%= @challenge.output_pattern %></pre>
 <% end %>
 
 <% if @challenge.result.present? %>
 <h2>Result: </h2>
+<%= link_to "Show", "#" %>
 <pre class="hidden"><%= @challenge.result %></pre>
 <% end %>
 
+<h2>Solution: </h2>
+<%= link_to "Show", "#" %>
+<pre class="hidden"><%= @challenge.solution %></pre>
+
+<br/>
+<br/>
 <br/>
 <hr/>
-<br/>
 
 <h2>Test your solution below</h2>
 <% flash.each do |name, msg| %>
