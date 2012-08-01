@@ -1,6 +1,6 @@
 <% title "Challenge ##{@challenge.position}" %>
 
-<div>Level: <%= @challenge.level %></div>
+<div>Level: <%= @challenge.level %> - Topic: <%= @challenge.topic %></div>
 
 <h2>Question: </h2>
 <pre><%= @challenge.question %></pre>
@@ -11,14 +11,20 @@
 <h2>Solution: </h2>
 <pre><%= @challenge.solution %></pre>
 
+<% if @challenge.input_pattern.present? %>
 <h2>Input Pattern: </h2>
 <pre><%= @challenge.input_pattern %></pre>
+<% end %>
 
+<% if @challenge.output_pattern.present? %>
 <h2>Output Pattern: </h2>
 <pre><%= @challenge.output_pattern %></pre>
+<% end %>
 
+<% if @challenge.result.present? %>
 <h2>Result: </h2>
 <pre><%= @challenge.result %></pre>
+<% end %>
 
 <br/><%= link_to "Edit", edit_challenge_path(@challenge) %>
 
