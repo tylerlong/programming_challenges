@@ -1,5 +1,19 @@
 <% title "Challenge ##{@challenge.position}" %>
 
+<div class="top-right">
+<% if @previous.present? %>
+  <%= link_to "Previous challenge", challenge_path(@previous) %>
+<% else %>
+  No previous challenge
+<% end %>
+|
+<% if @next.present? %>
+  <%= link_to "Next challenge", challenge_path(@next) %>
+<% else %>
+  no more challenges
+<% end %>
+</div>
+
 <div>Level: <%= @challenge.level %> - Topic: <%= @challenge.topic %></div>
 
 <h2>Question: </h2>
@@ -56,5 +70,4 @@
 <% session.delete(:solution)
 session.delete(:error_messages) %>
 
-<br/><%= link_to "Edit", edit_challenge_path(@challenge) %>
-<br/><br/><%= link_to "Back to list", challenges_path %>
+<br/><%= link_to "Edit", edit_challenge_path(@challenge) %> | <%= link_to "Back to list", challenges_path %>

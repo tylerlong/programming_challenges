@@ -19,6 +19,10 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
+    if @challenge
+      @previous = Challenge.find_by_position(@challenge.position - 1)
+      @next = Challenge.find_by_position(@challenge.position + 1)
+    end
   end
 
   def edit
