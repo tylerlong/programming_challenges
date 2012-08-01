@@ -11,17 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120730143601) do
+ActiveRecord::Schema.define(:version => 20120801022304) do
 
   create_table "challenges", :force => true do |t|
-    t.integer  "position",   :null => false
-    t.integer  "level",      :null => false
-    t.text     "question",   :null => false
-    t.text     "hints",      :null => false
-    t.text     "solution",   :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "topic",      :null => false
+    t.integer  "position",       :null => false
+    t.integer  "level",          :null => false
+    t.text     "question",       :null => false
+    t.text     "hints",          :null => false
+    t.text     "solution",       :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "topic",          :null => false
+    t.string   "input_pattern"
+    t.string   "output_pattern"
+    t.text     "result"
   end
 
   add_index "challenges", ["level"], :name => "index_challenges_on_level"

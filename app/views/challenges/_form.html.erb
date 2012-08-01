@@ -7,6 +7,9 @@
     <%= field f, :question, :type => :text_area, :rows => 8, :cols => 50 %>
     <%= field f, :hints, :type => :text_area, :rows => 8, :cols => 50 %>
     <%= field f, :solution, :type => :text_area, :rows => 8, :cols => 50 %>
+    <%= field f, :input_pattern, placeholder: 'regular expression here' %>
+    <%= field f, :output_pattern, placeholder: 'regular expression here' %>
+    <%= field f, :result, :type => :text_area, :rows => 8, :cols => 50 %>
     <div class="actions"><%= f.submit %></div>
   <% end %>
 </div>

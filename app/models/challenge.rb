@@ -1,5 +1,6 @@
 class Challenge < ActiveRecord::Base
-  attr_accessible :hints, :level, :position, :question, :solution, :topic
+  attr_accessible :hints, :level, :position, :question, :solution, 
+    :topic, :input_pattern, :ouput_pattern, :result
 
   validates :position, presence: true, numericality: { greater_than: 0 }, uniqueness: true
   validates :level, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 3 }  
